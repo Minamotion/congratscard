@@ -36,21 +36,32 @@
         </noscript>
         <div class="cardHold">
             <div>
-                <h1 class="Congrats">Congratulations!</h1>
                 <script async>
                     let params = new URLSearchParams(window.location.search)
                     let achievement = params.get('achievement');
                     let other = params.get('other');
+                    let name = params.get('name');
+
+                    if (achievement == null && other == null) {
+                        achievement = ''
+                        other = ''
+                    }
+
                     if (achievement == null) {
                         achievement = ''
                     }
+
                     if (other == null) {
                         other = ''
                     }
-                    document.write("<p id='achievementTxt'>"+achievement+"</p> <p id='OtherTxt'>"+other+"</p>")
+
+                    if (name == null) {
+                        name = ''
+                    }
+
+
+                    document.write("<h1 class='Congrats'>Congratulations!</h1> <p id='achievementTxt'>"+achievement+"</p> <p id='OtherTxt'>"+other+"</p> <p style='color: yellow'>Put your name below and then screenshot! (Note: It doesn't necessarily have to be your real name, you can put your nickname also)</p><input type='text' placeholder='Your name here' id='nameInput'>"+name+"</input>")
                 </script>
-                <p style="color: yellow">Put your name below and then screenshot! (Note: It doesn't necessarily have to be your real name, you can put your nickname also)</p>
-                <input type="text" placeholder="Your name here" id="nameInput">
             </div>
         </div>
     </body>
