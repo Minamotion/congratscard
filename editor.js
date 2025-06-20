@@ -1,4 +1,7 @@
 function generateURL(achievement, description="") {
+	if (description === "") {
+		return `https://minamotion.github.io/congratscard/?d=${LZString.compress(JSON.stringify({achievement:achievement}))}`
+	}
 	return `https://minamotion.github.io/congratscard/?d=${LZString.compress(JSON.stringify({achievement:achievement,description:description}))}`
 }
 
