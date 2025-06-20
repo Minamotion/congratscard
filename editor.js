@@ -1,5 +1,3 @@
-import LZString from "https://cdn.jsdelivr.net/gh/pieroxy/lz-string/libs/lz-string.js"
-
 function generateURL(achievement, description="") {
 	return `https://minamotion.github.io/congratscard/?d=${LZString.compress(JSON.stringify({achievement:achievement,description:description}))}`
 }

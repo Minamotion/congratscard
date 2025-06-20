@@ -1,5 +1,3 @@
-import LZString from "https://cdn.jsdelivr.net/gh/pieroxy/lz-string/libs/lz-string.js"
-
 function sanitize(string) {
 	let newString = "";
 	string.forEach(character => {
@@ -33,31 +31,32 @@ function generateHTML(achievement, description = "") {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-	const params = new URLSearchParams(location.search)
-	const data = {
-		achievement: "",
-		description: ""
-	}
-	let d = params.get('d');
-
-	if (d !== null || d !== "") {
-		data = JSON.parse(LZString.decompress(d))
-	} else {
-
-		let achievement = params.get('achievement');
-		let description = params.get('description');
-		let name = params.get('name');
-
-		if (achievement === null) {
-			throw Error("achievement is null");
+	try {
+		const params = new URLSearchParams(location.search)
+		const data = {
+			achievement: "",
+			description: ""
 		}
-		data.achievement = achievement
+		let d = params.get('d');
+		if (d !== null || d !== "") {
+			data = JSON.parse(LZString.decompress(d))
+		} else {
+			let achievement = params.get('achievement');
+			let description = params.get('description');
 
-		if (description === null) {
-			description = ""
-			console.debug("description is null");
+			if (achievement === null) {
+				throw Error("achievement is null");
+			}
+			data.achievement = achievement
+
+			if (description === null) {
+				description = ""
+				console.debug("description is null");
+			}
+			data.description = description
 		}
-		data.description = description
+		document.getElementById("contents").innerHTML = generateHTML(data.achievement, data.description)
+	} catch(err) {
+		document.getElementById("contents").innerHTML = "<h1>Oh no! Something went wrong!</h1><p>Check the console for more information</p>"
 	}
-	document.getElementById("contents").innerHTML = generateHTML(data.achievement, data.description)
 })
