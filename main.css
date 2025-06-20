@@ -1,0 +1,31 @@
+html {
+    background-color: black;
+    color: white;
+    font-family: 'Comic Sans MS';
+}
+
+#description {
+    opacity: 0.25;
+}
+
+#achievement {
+    font-size: 50px;
+}
+
+.congrats {
+    font-size: 75px;
+}
+
+input {
+    font-family: 'Comic Sans MS';
+}
+
+.card {
+    display: grid;
+    align-content: center;
+    text-align: center;
+}
+
+.hint {
+    color: yellow
+}
