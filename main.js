@@ -1,4 +1,4 @@
-import { LZString } from "https://cdn.jsdelivr.net/gh/pieroxy/lz-string/libs/lz-string.js"
+import LZString from "https://cdn.jsdelivr.net/gh/pieroxy/lz-string/libs/lz-string.js"
 
 function sanitize(string) {
 	let newString = "";
