@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			description: ""
 		}
 		let d = params.get('d');
-		if (d !== null || d !== "") {
+		if (typeof d !== "undefined" && typeof d === "string" || d !== "") {
 			data = JSON.parse(LZString.decompress(d))
 		} else {
 			let achievement = params.get('achievement');
