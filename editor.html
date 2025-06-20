@@ -4,28 +4,30 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1"/>
 		<link rel="icon" href="https://minamotion.name/assets/images/cat-favicon.png">
 		<link rel="stylesheet" href="./main.css">
-        <script src="https://cdn.jsdelivr.net/gh/pieroxy/lz-string/libs/lz-string.js"></script>
+		<script src="https://cdn.jsdelivr.net/gh/pieroxy/lz-string/libs/lz-string.js"></script>
 		<script src="./editor.js" type="module"></script>
 	</head>
 	<body>
 		<div class="card">
 			<noscript>
-                <style>
-                    #contents {
-                        display: none;
-                    }
-                </style>
-                <p>You need Javascript enabled in order for the surprise to work</p>
-            </noscript>
+				<style>
+					#contents {
+						display: none;
+					}
+				</style>
+				<p>You need Javascript enabled in order for the surprise to work</p>
+			</noscript>
 			<div id="contents">
-                <h1 class='Congrats'>Congratulations!</h1>
-                <p id="achievement" contenteditable>Click on me to set an achievement</p>
-                <p id="description" contenteditable>${sanitize(description)}</p>
-                <p class='hint'>Put your name below and then screenshot! (Note: It doesn't necessarily have to be your real name, you can put your nickname also)</p>
-                <input type='text' placeholder='Your name here' disabled>
-            </div>
-            <button id="make-btn">Get the URL!</button>
-            <p><a id="made-url">This text will change when the URL is generated.</a></p>
+				<h1 class='Congrats'>Congratulations!</h1>
+				<p id="achievement" contenteditable>Click on me to set an achievement</p>
+				<p id="description" contenteditable>Click on me to set a description</p>
+				<p class='hint'>You are in the Card Editor, therefore the option to put your name below has been disabled.</p>
+				<input type='text' placeholder='Your name here' disabled>
+			</div>
+			<div>
+				<button id="make-btn">Get the URL!</button>
+				<p><a id="made-url">This text will change when the URL is generated.</a></p>
+			</div>
 		</div>
 	</body>
 </html>
