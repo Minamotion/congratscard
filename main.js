@@ -1,6 +1,6 @@
 function sanitize(string) {
 	let newString = "";
-	string.forEach(character => {
+	string.split("").forEach(character => {
 		switch (character) {
 			case "<":
 				newString += "&lt;";
