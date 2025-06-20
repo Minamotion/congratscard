@@ -58,5 +58,6 @@ document.addEventListener("DOMContentLoaded", () => {
 		document.getElementById("contents").innerHTML = generateHTML(data.achievement, data.description)
 	} catch(err) {
 		document.getElementById("contents").innerHTML = "<h1>Oh no! Something went wrong!</h1><p>Check the console for more information</p>"
+		console.error(err)
 	}
 })
