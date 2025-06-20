@@ -7,9 +7,9 @@ function generateURL(achievement, description="") {
 
 document.addEventListener("DOMContentLoaded", () => {
 	const makeButton = document.getElementById("make-btn")
-	const madeLink = document.getElementById("made-url")
+	const cardURL = document.getElementById("card-url")
 
 	makeButton.addEventListener("click", () => {
-		madeLink.href = madeLink.innerText = generateURL(document.getElementById("achievement").innerText, document.getElementById("description").innerText)
+		cardURL.href = cardURL.innerText = generateURL(document.getElementById("achievement").innerText, document.getElementById("description").innerText)
 	})
 })
