@@ -31,16 +31,14 @@ function generateHTML(achievement, description = "") {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+	const params = new URLSearchParams(location.search)
 	try {
-		const params = new URLSearchParams(location.search)
-		const data = {
+		let data = {
 			achievement: "",
 			description: ""
 		}
 		let d = params.get('d');
-		if (typeof d !== "undefined" && typeof d === "string" || d !== "") {
-			data = JSON.parse(LZString.decompress(d))
-		} else {
+		if (d === null) {
 			let achievement = params.get('achievement');
 			let description = params.get('description');
 
@@ -54,6 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
 				console.debug("description is null");
 			}
 			data.description = description
+		} else {
+			data = JSON.parse(LZString.decompress(d))
 		}
 		document.getElementById("contents").innerHTML = generateHTML(data.achievement, data.description)
 	} catch(err) {
